@@ -1,5 +1,8 @@
 package cn.tedu.boot05.controller;
 
+import cn.tedu.boot05.entity.User;
+import cn.tedu.boot05.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,9 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
-    @RequestMapping("/check")
-    public String check(String username){
+    @Autowired
+    UserMapper mapper;
 
-        return "";
+    @RequestMapping("/check")
+    public int check(String username){
+        User u = mapper.selectByUsername(username);
+        if (u!=null) {//在数据库中找到了相同的用户名
+            return 1;
+        }
+
+        return 0;
     }
+
 }

@@ -8,9 +8,9 @@
 <h1>注册</h1>
 <div>
 <!--    blur 代表失去焦点事件   -->
-  <input type="text" v-model="user.username" name="username" placeholder="用户名" @blur="f()"><br>
-  <input type="text" v-model="user.password" name="password" placeholder="密码"><br>
-  <input type="text" v-model="user.nick" name="nick" placeholder="昵称"><br>
+  <input type="text" v-model="user.username" placeholder="用户名" @blur="f()">{{info}}<br>
+  <input type="text" v-model="user.password" placeholder="密码"><br>
+  <input type="text" v-model="user.nick" placeholder="昵称"><br>
   <input type="button" value="注册" @click="reg()"><br>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -21,12 +21,14 @@
         data:{
             user:{
                 username:"",password:"",nick:""
-            }
+            },
+            info:""
         },
       methods:{
           f(){
-              axios.get("/check?username="+v.username).then(function (response){
-                  alert(response.data)
+              axios.get("/check?username="+v.user.username).then(function (response){
+                  // alert(response.data)
+                  v.info=response.data==1?"用户名已存在":"用户名可用"
               })
           },
           reg(){
