@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="d1">
+    <!-- v-if="boolean"true则标签显示，false则标签不显示 本质是删除元素-->
+    <h1 v-if="isVisible">刘德华</h1>
+    <h1 v-if="!isVisible">张学友</h1>
+    <h1 v-else>齐秦</h1>
+    <!-- v-show 本质是隐藏元素 style="display:none;"-->
+    <h1 v-show="isVisible">周杰伦</h1>
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"#d1",
+        data:{
+            isVisible:true
+        }
+    })
+</script>
+</body>
+</html>

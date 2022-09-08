@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    div{
+        /* block块级元素的默认值,  特点: 独占一行,可以修改宽高包括: h1-h6,p, div*/
+      border: 1px solid red;
+      width: 100px;
+      height: 100px;
+    margin:0 auto;
+    }
+    span{
+        /*line行内元素 共占一行 不能修改宽高包括: span,b加粗,i斜体,u下划线,s删除线,a超链接等
+*/
+      border: 1px solid blue;
+    }
+    img{
+        /*line-block行内块元素 共占一行 可以修改宽高包括:input,img*/
+    }
+    a{
+        background-color: #0aa1ed;
+        width: 132px;
+        height: 40px;
+        display: block;/*修改显示方式为block或者line-block就可以修改宽高了*/
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        border-radius: 3px;
+
+    }
+
+  </style>
+</head>
+<body>
+<a href="">查看详情</a>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<span>1</span><span>2</span><span>3</span>
+</body>
+</html>

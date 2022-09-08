@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.9/theme-chalk/index.css">
+</head>
+
+<body>
+<div id="app">
+  <template>
+    <el-table
+            :data="arr"
+            style="width: 50%"
+    >
+      <el-table-column
+              type="index"
+              label="编号"
+              witdh="180"
+      ></el-table-column>
+      <el-table-column
+              prop="name"
+              label="姓名"
+              witdh="180"
+      ></el-table-column>
+      <el-table-column
+              prop="salary"
+              label="工资"
+              witdh="180"
+      ></el-table-column>
+      <el-table-column
+              prop="job"
+              label="工作"
+              witdh="180"
+      ></el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <i class="el-icon-delete" @click="handleDelete(scope.$index,scope.row)"></i>
+          <el-button
+                  size="mini" type="danger"
+                  @click="handleDelete(scope.$index,scope.row)"
+          >删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <el-input v-model="emp.name" placeholder="请输入姓名" size="small"></el-input>
+    <el-input v-model="emp.salary" placeholder="请输入工资" size="small"></el-input>
+    <el-input v-model="emp.job" placeholder="请输入工作" size="small"></el-input>
+    <el-button type="primary" plain @click="f()" size="small">添加</el-button>
+  </template>
+
+</div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.staticfile.org/element-ui/2.15.9/index.min.js"></script>
+<script>
+  let v = new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        arr:[{name:"张三",job:"销售",salary:"30000",age:33},
+          {name:"李四",job:"人事",salary:3000,age:20},
+          {name:"王五",job:"出纳",salary:4000,age:22},],
+        emp:{
+          name:"",salary:"",job:"",
+        }
+      }
+    },
+    methods:{
+      f(){
+        /*push（）是js中数组增加元素的方法*/
+        v.arr.push({name:v.emp.name,job:v.emp.job,salary:v.emp.salary})
+      },
+      handleDelete(i, emp) {
+        v.arr.splice(i,1)
+        v.$message.success(emp.name+"已删除")
+      }
+    }
+  })
+</script>
+
+</html>

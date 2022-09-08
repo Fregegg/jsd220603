@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="员工姓名" id="i1">
+<input type="text" placeholder="员工工资" id="i2">
+<input type="text" placeholder="员工工作" id="i3">
+<input type="button" value="添加" onclick="f()">
+<table border="1">
+  <caption>员工列表</caption>
+    <tr>
+      <th>姓名</th>
+      <th>工资</th>
+      <th>工作</th>
+    </tr>  
+</table>
+
+<script>
+  function f() {
+    /*
+    创建tr
+    创建3个td
+    赋值
+    把td装进tr
+    得到table并把tr装进table
+    */
+    let tr = document.createElement("tr")
+
+    let td1 = document.createElement("td")
+    let td2 = document.createElement("td")
+    let td3 = document.createElement("td")
+
+    // let name = document.querySelector("#i1")
+    // let salary = document.querySelector("#i2")
+    // let duty = document.querySelector("#i3")
+    //  加了id的标签浏览器会自动创建对象 可以直接使用i1,i2,i3
+    td1.innerText = i1.value
+    td2.innerText = i2.value
+    td3.innerText = i3.value
+
+    tr.append(td1,td2,td3)
+
+    let table = document.querySelector("table")
+    table.append(tr)
+
+  }
+</script>
+</body>
+</html>

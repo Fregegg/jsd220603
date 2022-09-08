@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+  <style>
+    /*id选择器*/
+    #p1{color: red;}
+    #p2{color: yellowgreen}
+    #p3{color: orange}
+    /*类选择器*/
+    .c1{color: aqua}
+    /*分组选择器*/
+    h1,#p0,.c2{background-color: lightgoldenrodyellow}
+    /*属性选择器*/
+    input[type='text']{color: red}
+    input[type='password']{background-color: bisque}
+    /*任意元素选择器*/
+    *{
+        /*边框  粗细  样式  颜色*/
+        border: 1px solid red;
+    }
+  </style>
+
+</head>
+<body >
+<h1 class="c1">分组选择器h1</h1>
+<p id="p0">分组选择器p</p>
+<div class="c2">分组选择器div</div>
+<p id="p1">apple</p>
+<p id="p2">banana</p>
+<p id="p3">tangerine</p>
+<div class="c1">冰箱</div>
+<div class="c1">洗衣机</div>
+<input type="text">
+<input type="password">
+
+</body>
+</html>

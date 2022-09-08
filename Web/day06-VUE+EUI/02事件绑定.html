@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="text" v-model="message" >
+    <!--事件绑定的两种写法-->
+    <input type="button" value="按钮1" @click="f()">
+    <input type="button" value="按钮2" v-on:click="f1()">
+    <input type="button" value="按钮3" @click="f2()">
+</div>
+
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            message:""
+        },
+        methods:{
+          f(){alert("滴滴滴")},
+          f1(){alert("嗒嗒嗒")},
+          f2(){alert(v.message)}
+        }
+    })
+</script>
+</body>
+</html>

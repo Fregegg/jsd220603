@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <table border="3">
+    <caption>个人信息</caption>
+    <tr>
+      <td>照片</td>
+      <td ><img :src="user.url" alt="" ></td>
+    </tr>
+    <tr>
+      <td>姓名</td>
+      <td>{{user.name}}</td>
+    </tr>
+    <tr>
+      <td>年龄</td>
+      <td>{{user.age}}</td>
+    </tr>
+    <tr>
+      <td>好友</td>
+      <td>
+        <ul>
+          <li v-for="name in user.friend">{{name}}</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <input type="button" value="请求数据" @click="f()">
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+      el:"body>div",
+      data:{
+        user:{}
+      },
+      methods:{
+        f(){
+          v.user={url:"../cat.png",name:"cq",age:"we",
+            friend:["小月","小梅"]}
+        }
+      }
+    })
+</script>
+</body>
+</html>

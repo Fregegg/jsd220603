@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <input type="text" placeholder="姓名" v-model="emp.name">
+  <input type="text" placeholder="工资" v-model="emp.salary">
+  <input type="text" placeholder="职位" v-model="emp.job">
+  <input type="button" value="添加" @click="f()">
+
+  <table border="3">
+    <caption>员工列表</caption>
+    <tr>
+      <th>编号</th>
+      <th>姓名</th>
+      <th>职责</th>
+      <th>薪水</th>
+      <th>操作</th>
+    </tr>
+    <tr v-for="(emp,i) in arr">
+      <td>{{i+1}}</td>
+      <td>{{emp.name}}</td>
+      <td>{{emp.job}}</td>
+      <td>{{emp.salary}}</td>
+      <td><input type="button" value="删除" @click="del(i)"></td>
+    </tr>
+
+  </table>
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+          arr:[{name:"张三",job:"销售",salary:"30000",age:33},
+            {name:"李四",job:"人事",salary:3000,age:20},
+            {name:"王五",job:"出纳",salary:4000,age:22},],
+          emp:{
+            name:"",salary:"",job:"",
+          }
+        },
+        methods:{
+          f(){
+            /*push（）是js中数组增加元素的方法*/
+            v.arr.push({name:v.emp.name,job:v.emp.job,salary:v.emp.salary})
+          },
+          del(i){
+            /*splice(起始下标，删除数量)删除数组元素的方法*/
+            v.arr.splice(i,1)
+          }
+        }
+
+    })
+</script>
+
+</body>
+</html>

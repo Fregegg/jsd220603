@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    /*子孙后代选择器 选择body下div下div下的所有标签下的所有p 包含所有后代*/
+    body div div p{
+      color: red;
+    }
+    /*子元素选择器*/
+    body>div>div>p{
+      color: pink;
+    }
+    /*伪类选择器*/
+    a:link{color: yellow;}/*未访问*/
+    a:visited{color:green}/*访问过*/
+    a:hover{color: red}/*悬停*/
+    a:active{color: blue}/*点击激活*/
+  </style>
+</head>
+<body>
+<a href="https://www.baidu.com">1</a>
+<a href="https://www.baidu.com">2</a>
+<a href="https://www.baidu.com">3</a>
+<p>p1</p>
+<div>
+  <p>p2</p>
+  <div><p>p3</p></div>
+  <div>
+    <p>p4</p>
+    <div><p>p5</p></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="8">
+    <caption>商品列表</caption>
+    <tr>
+        <th>商品标题</th>
+        <th>商品价格</th>
+        <th>商品销量</th>
+    </tr>
+</table>
+
+
+<script>
+  //实例化空对象
+  let p1 = {};
+  //动态化给实例化的对象添加属性和方法
+  p1.name="张三"
+  p1.age = 20
+  p1.run=function (){
+    console.log(this.name+": "+this.age)
+  }
+  p1.run();
+
+  //实例化自带属性和方法的对象
+  let p2 = {
+      name : "李四", age : 18,
+      run:function () {
+          console.log(this.name+":"+this.age)
+      }
+  }
+  p2.run()
+
+  //通过数组对象的方式封装列表数据
+  let arr = [
+      {title:"小米",price:1000,sales:300},
+      {title:"中米",price:2000,sales:200},
+      {title:"大米",price:3000,sales:100}
+  ]
+  //遍历数组对象装进列表里
+  for (let product of arr) {
+      let tr = document.createElement("tr")
+      let titleTd = document.createElement("td")
+      let priceTD = document.createElement("td")
+      let salesTD = document.createElement("td")
+      titleTd.innerText = product.title
+      priceTD.innerText = product.price
+      salesTD.innerText = product.sales
+      tr.append(titleTd,priceTD,salesTD)
+      let table = document.querySelector("table")
+      table.append(tr)
+  }
+
+
+
+</script>
+</body>
+</html>

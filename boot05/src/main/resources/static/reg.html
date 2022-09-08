@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>注册</h1>
+<div>
+<!--    blur 代表失去焦点事件   -->
+  <input type="text" v-model="user.username" name="username" placeholder="用户名" @blur="f()"><br>
+  <input type="text" v-model="user.password" name="password" placeholder="密码"><br>
+  <input type="text" v-model="user.nick" name="nick" placeholder="昵称"><br>
+  <input type="button" value="注册" @click="reg()"><br>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            user:{
+                username:"",password:"",nick:""
+            }
+        },
+      methods:{
+          f(){
+              axios.get("/check?username="+v.username).then(function (response){
+                  alert(response.data)
+              })
+          },
+          reg(){
+              axios.post("/reg",user).then(function (response) {
+
+              })
+          }
+      }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<!--
+form 表单
+action 提交地址
+没有name无法提交属性
+placeholder占位文本
+maxlength最长字符
+value
+readonly="readonly"只读 可以简写为readonly
+type
+    checked 默认勾选
+    radio 圆形单选框   不输入value时显示name = on
+    checkbox多选框
+    submit提交
+    reset重置
+    date 日期
+    file选择文件
+    button自定义按钮
+
+发送给服务器的提交信息是name = value
+-->
+
+<form action="https://www.baidu.com">
+    <input type="text" name="test" readonly value="test"><br>
+    <input type="text"name="username"placeholder="请输入用户名"><br>
+    <input type="text"name="password"placeholder="请输入密码" maxlength="13"><br>
+    性别：
+    <input type="radio" name="gender" checked value="m">男
+    <input type="radio" name="gender" value="w">女 <br>
+    <!--label 点击 内容也能勾选-->性别：
+    <input type="radio" name="gender" value="m" id="r1">
+    <label for="r1">男</label>
+    <input type="radio" name="gender" value="w" id="r2">
+    <label for="r2">女</label><br>
+    兴趣爱好：
+    <input type="checkbox" name="抽烟" value="on">抽烟
+    <input type="checkbox" name="喝酒" value="on">喝酒
+    <input type="checkbox" name="烫头" value="on">烫头
+    <br>
+    生日：
+    <input type="date" name="birthday"><br>
+    <input type="file"><br>
+    所在地：
+    <select name="city" >
+        <option value="北京">北京</option>
+        <option value="sh" selected>上海</option><!--selected默认选中-->
+        <option value="gz">广州</option>
+    </select><br>
+    <input type="reset"value="重置">
+    <input type="submit"value="注册"><br>
+    <button type="reset">重置</button>
+    <button type="submit">注册</button>
+    <br>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS引入方式</title>
+  <style>
+    /*内部样式，在head里添加style标签*/
+    /*先通过选择器找到页面中的元素，再添加样式*/
+    h2{
+      color: green;/*给所有的h2添加绿色标签*/
+    }
+  </style>
+
+    <!--外部样式    可以实现多页面复用-->
+    <!--rel:关系 代表引入的文件和页面的关系 stylesheet样式表-->
+    <link rel="stylesheet" href="my.css">
+
+</head>
+<body>
+<!--内联样式，不能服用-->
+<h1 style="color: red" align="center">内联样式</h1>
+<h1 style="color: greenyellow" align="center">内联样式的缺点就是不能复用</h1>
+<!--内部样式-->
+<h2>内部样式1</h2>
+<h2>内部样式2</h2>
+<h3>外部样式1</h3>
+<h3>外部样式2</h3>
+
+</body>
+</html>

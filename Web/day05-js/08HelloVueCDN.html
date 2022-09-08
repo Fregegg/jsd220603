@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <h1>{{info}}</h1>
+</div>
+<!--引入vue.js框架文件-->
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+  /*创建Vue对象*/
+  let v = new Vue({
+      //设置Vue框架的管理范围
+      el:"body>div",
+      data:{info:"Hello Vue!"}
+  })
+  setTimeout(function (){
+      //Vue框架持续监听info的值
+      v.info = "Vue框架节省了Dom操作"
+  },1000)
+</script>
+</body>
+</html>

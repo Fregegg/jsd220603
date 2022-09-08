@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="点一下" onclick="f1()">
+<script>
+  //无参无返回值方法
+  function f1(){
+    console.log("f1")
+  }
+  //调用方法
+  f1();
+  //有参无返回值方法
+  function f2(name,age){
+    console.log(name+": "+age)
+  }
+  f2("1",2);
+  //无参有返回值方法
+  function f3(){
+    return "返回值"
+  }
+  console.log(f3())
+  //有参有返回值
+  function f4(x,y){
+    return x*y
+  }
+  let z=f4(5,8)
+  console.log(z)
+  z=f3
+  console.log(z)
+  console.log(f2("name",1))
+  //第二种定义方法的方式
+  let f5 = function (name,age){console.log(name+" "+age)}
+  f5("张三",13)
+  //第三种定义方法的方式   匿名方法
+  let f6 = new  Function ("name","age","console.log(name+' '+age)")
+  f6("李四",17)
+
+</script>
+</body>
+</html>

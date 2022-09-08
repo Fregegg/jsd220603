@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body>div{
+      width: 1000px;
+      /*块级元素自身居中*/
+      margin: 0 auto;
+    }
+    /*设置背景颜色*/
+    #t_div>div,#b_l,#b_r>div{
+      background-color: #e8e8e8;
+    }
+    #t_div{
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    #t_l{
+      width: 611px;
+      height: 376px;
+      float: left;
+    }
+    #t_r{
+      width: 375px;
+      height: 376px;
+      float: right;
+    }
+    #b_div{
+      overflow: hidden;
+    }
+    #b_l{
+      width: 366px;
+      height: 233px;
+      float: left;
+    }
+    #b_r{
+      float: left;
+    }
+    #b_r>div{
+      width: 198px;
+      height: 233px;
+      float: left;
+      margin-left: 10px;
+    }
+  </style>
+
+</head>
+<body>
+<div>
+  <div id="t_div">
+    <div id="t_l">
+
+    </div>
+    <div id="t_r">
+
+    </div>
+  </div>
+  <div id="b_div">
+    <div id="b_l">
+
+    </div>
+    <div id="b_r">
+      <div id="b_r_1">
+
+      </div>
+      <div id="b_r_2">
+
+      </div>
+      <div id="b_r_3">
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

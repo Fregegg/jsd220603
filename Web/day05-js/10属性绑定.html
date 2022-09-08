@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <!-- 添加： 属性绑定-->
+    <a :href="url">google1</a>
+    <!-- 添加v-bind: 属性绑定-->
+    <a v-bind:href="url">google2</a>
+
+    <img :src="imgName" alt="">
+    <input type="text" :value="info">
+</div>
+<script src="../vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            url:"https://www.google.com",
+            imgName:"../longmao.png",
+            info:"你好"
+        }
+    })
+</script>
+</body>
+</html>

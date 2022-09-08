@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <input type="text" placeholder="请输入数字" v-model="num1">
+  <input type="text" placeholder="请输入数字" v-model="num2">
+  <input type="button" value="+" @click="f('+')">
+  <input type="button" value="-" @click="f('-')">
+  <input type="button" value="*" @click="f('*')">
+  <input type="button" value="/" @click="f('/')">
+  <p>结果：{{result}}</p>
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            num1:"",num2:"",result:""
+        },
+        methods:{
+          f(x){
+              /*eval()此方法可以将字符串以js代码的形式运行*/
+              v.result = eval(v.num1+x+v.num2)
+          }
+        }
+    })
+</script>
+</body>
+</html>

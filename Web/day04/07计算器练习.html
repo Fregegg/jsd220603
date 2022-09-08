@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="text" id="i2">
+<input type="button" value="加" onclick="calculate(value)">
+<input type="button" value="减" onclick="calculate(2)">
+<input type="button" value="×" onclick="calculate(3)">
+<input type="button" value="除" onclick="calculate(4)">
+<br> 结果：<br>
+<div></div>
+<script>
+  function calculate(method){
+    let i1 = document.querySelector("#i1")
+    let i2 = document.querySelector("#i2")
+    let d = document.querySelector("div")
+      if (isNaN(i1.value)||isNaN(i2.value)){
+          d .innerText="输入错误";
+          alert("输入错误")
+          return;
+      }
+    switch (method){
+      case "加":
+        d.innerText = i1.value*1+i2.value*1
+        break;
+      case 2:
+        d.innerText = i1.value-i2.value
+        break;
+      case 3:
+        d.innerText = i1.value*i2.value
+        break;
+      case 4:
+        d.innerText = i1.value/i2.value
+        break;
+    }
+  }
+
+
+  /*
+  function plus(){
+    let i1 = document.querySelector("#i1")
+    let i2 = document.querySelector("#i2")
+    let d = document.querySelector("div")
+    d.innerText = i1.value*1+i2.value*1
+  }
+  function subtract(){
+    let i1 = document.querySelector("#i1")
+    let i2 = document.querySelector("#i2")
+    let d = document.querySelector("div")
+    d.innerText = i1.value-i2.value
+  }
+  function multiply(){
+    let i1 = document.querySelector("#i1")
+    let i2 = document.querySelector("#i2")
+    let d = document.querySelector("div")
+    d.innerText = i1.value*i2.value
+  }
+  function divide(){
+    let i1 = document.querySelector("#i1")
+    let i2 = document.querySelector("#i2")
+    let d = document.querySelector("div")
+    d.innerText = i1.value/i2.value
+  }
+
+   */
+</script>
+</body>
+</html>

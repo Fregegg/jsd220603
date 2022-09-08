@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function f1(){console.log(123)}
+  f1()
+  function f2(){return 1}
+  let l1 = f2()
+  console.log(f2)
+  console.log(l1)
+  function f3(q,w){return q*w}
+  let l2 = f3(3,5);
+  console.log(l2)
+
+  function f4(e,w){
+    while(e<w){
+      e++;
+      let q=w*e;
+    }
+    return q
+  }
+  let r = f4(1,10)
+  console.log(r)
+</script>
+</body>
+</html>
