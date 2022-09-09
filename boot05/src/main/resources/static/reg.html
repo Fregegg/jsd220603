@@ -11,7 +11,8 @@
   <input type="text" v-model="user.username" placeholder="用户名" @blur="f()">{{info}}<br>
   <input type="text" v-model="user.password" placeholder="密码"><br>
   <input type="text" v-model="user.nick" placeholder="昵称"><br>
-  <input type="button" value="注册" @click="reg()"><br>
+    <!-- v-bind:disabled="true" 此情况下按钮无法点击  false就可以点击-->
+  <input type="button" value="注册" @click="reg()" v-bind:disabled="info=='用户名已存在'"><br>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
@@ -32,13 +33,15 @@
               })
           },
           reg(){
-              axios.post("/reg",user).then(function (response) {
-
+              axios.post("/reg",v.user).then(function (response) {
+                  if (response.data==1){
+                      alert("注册成功!")
+                      location.href="/";//回到首页
+                  }
               })
           }
       }
     })
 </script>
-
 </body>
 </html>

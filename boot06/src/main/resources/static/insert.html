@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="text" placeholder="title" v-model="product.title">
+    <input type="text" placeholder="price" v-model="product.price">
+    <input type="text" placeholder="num" v-model="product.num">
+    <input type="button" value="添加商品" @click="insert()">
+    <a href="/">回到首页</a>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            product:{
+                title:"",price:"",num:""
+            }
+        },
+        methods:{
+            insert(){
+                axios.post("/insert",v.product).then(function (response) {
+                    alert("添加成功")
+                    location.href="/"
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

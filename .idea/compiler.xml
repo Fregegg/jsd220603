@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="boot02-1" />
+        <module name="boot06" />
         <module name="boot01" />
         <module name="boot05" />
         <module name="jdbc02" />
@@ -29,6 +30,7 @@
       <module name="boot03" options="-parameters" />
       <module name="boot04" options="-parameters" />
       <module name="boot05" options="-parameters" />
+      <module name="boot06" options="-parameters" />
       <module name="s1" options="-parameters" />
     </option>
   </component>
