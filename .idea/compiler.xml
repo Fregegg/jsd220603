@@ -11,6 +11,7 @@
         <module name="boot02-1" />
         <module name="boot06" />
         <module name="boot06-1" />
+        <module name="boot06-2" />
         <module name="boot01" />
         <module name="boot05" />
         <module name="boot01-1" />
@@ -33,6 +34,7 @@
       <module name="boot05" options="-parameters" />
       <module name="boot06" options="-parameters" />
       <module name="boot06-1" options="-parameters" />
+      <module name="boot06-2" options="-parameters" />
       <module name="s1" options="-parameters" />
     </option>
   </component>
