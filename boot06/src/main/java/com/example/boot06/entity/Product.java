@@ -6,6 +6,7 @@ package com.example.boot06.entity;
  */
 
 public class Product {
+    private int id;
     private String title;
     private double price;
     private int num;
@@ -17,6 +18,14 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

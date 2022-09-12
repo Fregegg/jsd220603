@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+</head>
+<body>
+<div>
+  <table border="3">
+    <caption>商品列表</caption>
+    <th>id</th><th>标题</th><th>价格</th><th>库存</th><th>操作</th>
+    <tr v-for="p in arr">
+      <td>{{p.id}}</td>
+      <td>{{p.title}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.num}}</td>
+      <td>
+        <!--属性里面出现变量必须使用属性绑定，也就是在属性前面加“ ： ” 属性的值就变成JS代码了-->
+        <a :href="'/update.html?id='+p.id">修改</a>
+        <!--
+      javascript:void(0)作用是废除超链接的跳转功能
+      再添加点击对象调用删除方法，delete是关键字，不能用
+      -->
+        <a href="javascript:void(0)" @click="del(p.id)">删除</a>
+      </td>
+    </tr>
+  </table>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+      el:"body>div",
+      data:{
+            arr:[]
+        },
+      methods:{
+        del(id){
+          if (confirm("确认删除此商品吗?")){
+            axios.get("/delete?id="+id).then(function (response) {
+              alert("删除成功")
+              //刷新页面
+              location.reload()
+            })
+          }
+        }
+          },
+        /*此方法是Vue对象的一个生命周期方法，
+        创建Vue对象是此方法会自动调用通常把刚进入页面需要做的事情卸载此方法中*/
+      created:function () {
+          //发出异步请求获取数据
+          axios.get("/select").then(function (response) {
+            //服务器响应的数据为装着多个商品信息的数组
+            v.arr=response.data
+          })
+      }
+    })
+</script>
+</body>
+</html>

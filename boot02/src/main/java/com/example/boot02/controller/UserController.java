@@ -2,9 +2,7 @@ package com.example.boot02.controller;
 
 import com.example.boot02.Utils.DBUtils;
 import com.example.boot02.entity.User;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Connection;
@@ -53,7 +51,7 @@ public class UserController {
             if (resultSet.next()){//true则存在
                 //判断密码对不对
                 if (user.getPassword().equals(resultSet.getString("password"))){
-                    return "登录成功";
+
                 }
                 return "密码错误";
             }

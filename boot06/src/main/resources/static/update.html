@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p>id</p><input type="text" placeholder="id" v-model="p.id" readonly> <!--设置id为只读-->
+    <p>标题</p><input type="text" placeholder="标题" v-model="p.title">
+    <p>价格</p><input type="text" placeholder="价格" v-model="p.price">
+    <p>库存</p><input type="text" placeholder="库存" v-model="p.num">
+    <input type="button" value="修改" @click="update()">
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v = new Vue({
+      el:"body>div",
+      data:{
+          p:{}
+      },
+      methods:{
+          update(){
+              axios.post("/update",v.p).then(function (response) {
+                  alert("修改完成")
+                  location.href="list.html"
+              })
+          }
+      },
+        created:function () {
+            //  通过修改商品的id查询商品信息    location.search获取了地址栏中的参数 ?id=xx
+            axios.get("/selectById"+location.search).then(function (response) {
+            //    把通过id查询到的商品对象赋值给Vue里的变量p 页面就会发生改变
+                v.p = response.data;
+            })
+        }
+    })
+</script>
+</body>
+</html>
